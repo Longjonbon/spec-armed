@@ -8,6 +8,10 @@ Makes it obvious when your special attack is turned on.
 - Shows text above your character
 - Plays a sound when spec is turned on (shotgun or hammer cock), with a volume slider and a preview toggle
 
+## Settings
+
+![Spec Armed settings panel](images/settings.png)
+
 ## Credits
 
 Shotgun sound: "shotguncock.wav" from [Gun reload sounds](https://opengameart.org/content/gun-reload-sounds) by SpringySpringo (CC0).
