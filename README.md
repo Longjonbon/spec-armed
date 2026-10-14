@@ -2,6 +2,8 @@
 
 Makes it obvious when your special attack is turned on.
 
+![Spec Armed with spec turned on: text above the player and a highlighted spec orb](images/spec-armed.png)
+
 - Highlights the spec orb (ring, fill, or both) and the combat tab spec bar
 - Shows text above your character
 - Plays a sound when spec is turned on (shotgun or hammer cock), with a volume slider and a preview toggle
