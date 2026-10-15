@@ -43,7 +43,8 @@ public interface SpecArmedConfig extends Config
 	enum SoundChoice
 	{
 		SHOTGUN("Shotgun", "shotgun.wav"),
-		HAMMER_COCK("Hammer cock", "hammer_cock.wav");
+		HAMMER_COCK("Hammer cock", "hammer_cock.wav"),
+		CUSTOM("Custom file", null);
 
 		private final String name;
 		private final String resource;
@@ -253,7 +254,7 @@ public interface SpecArmedConfig extends Config
 	@ConfigItem(
 		keyName = "sound",
 		name = "Sound",
-		description = "Which sound to play",
+		description = "Which sound to play. Custom file plays .runelite/spec-armed/custom.wav",
 		section = soundSection,
 		position = 1
 	)

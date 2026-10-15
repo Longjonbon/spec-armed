@@ -1,6 +1,7 @@
 package com.specarmed;
 
 import com.google.inject.Provides;
+import java.io.File;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -13,6 +14,7 @@ import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.gameval.VarPlayerID;
+import net.runelite.client.RuneLite;
 import net.runelite.client.audio.AudioPlayer;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
@@ -30,6 +32,9 @@ import net.runelite.client.ui.overlay.OverlayManager;
 )
 public class SpecArmedPlugin extends Plugin
 {
+	static final File SOUND_DIR = new File(RuneLite.RUNELITE_DIR, "spec-armed");
+	static final File CUSTOM_SOUND = new File(SOUND_DIR, "custom.wav");
+
 	@Inject
 	private Client client;
 
@@ -77,6 +82,8 @@ public class SpecArmedPlugin extends Plugin
 	@Override
 	protected void startUp()
 	{
+		// Make the folder so it's easy to find when adding a custom sound
+		SOUND_DIR.mkdirs();
 		overlayManager.add(widgetOverlay);
 		overlayManager.add(playerOverlay);
 		clientThread.invoke(() ->
@@ -171,7 +178,18 @@ public class SpecArmedPlugin extends Plugin
 		float gain = (float) (20 * Math.log10(Math.max(config.volume(), 1) / 100f));
 		try
 		{
-			audioPlayer.play(SpecArmedPlugin.class, config.sound().getResource(), gain);
+			SpecArmedConfig.SoundChoice choice = config.sound();
+			if (choice == SpecArmedConfig.SoundChoice.CUSTOM)
+			{
+				if (CUSTOM_SOUND.isFile())
+				{
+					audioPlayer.play(CUSTOM_SOUND, gain);
+					return;
+				}
+				log.warn("Spec Armed: no custom sound at {}, playing the shotgun instead", CUSTOM_SOUND);
+				choice = SpecArmedConfig.SoundChoice.SHOTGUN;
+			}
+			audioPlayer.play(SpecArmedPlugin.class, choice.getResource(), gain);
 		}
 		catch (Exception e)
 		{
