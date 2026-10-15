@@ -44,6 +44,7 @@ public interface SpecArmedConfig extends Config
 	{
 		SHOTGUN("Shotgun", "shotgun.wav"),
 		HAMMER_COCK("Hammer cock", "hammer_cock.wav"),
+		BELL("Bell", "bell.wav"),
 		CUSTOM("Custom file", null);
 
 		private final String name;

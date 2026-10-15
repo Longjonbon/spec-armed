@@ -6,7 +6,7 @@ Makes it obvious when your special attack is turned on.
 
 - Highlights the spec orb (ring, fill, or both) and the combat tab spec bar
 - Shows text above your character
-- Plays a sound when spec is turned on (shotgun or hammer cock), with a volume slider and a preview toggle
+- Plays a sound when spec is turned on (shotgun, hammer cock or bell), with a volume slider and a preview toggle
 
 To use your own sound, set Sound to "Custom file" and save a `.wav` as `.runelite/spec-armed/custom.wav` (on Windows: `%USERPROFILE%\.runelite\spec-armed\custom.wav`). If the file is missing, the shotgun plays instead.
 
@@ -17,5 +17,7 @@ To use your own sound, set Sound to "Custom file" and save a `.wav` as `.runelit
 ## Credits
 
 Shotgun sound: "shotguncock.wav" from [Gun reload sounds](https://opengameart.org/content/gun-reload-sounds) by SpringySpringo (CC0).
+
+Bell: made for this plugin, free to reuse under the same license.
 
 Hammer cock: cut from "equipment_clicks3.wav" in [Equipment clicks III](https://opengameart.org/content/equipment-clicks-iii) by LFA (CC0).
