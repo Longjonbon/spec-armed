@@ -274,7 +274,7 @@ public interface SpecArmedConfig extends Config
 	)
 	default int volume()
 	{
-		return 70;
+		return 25;
 	}
 
 	@ConfigItem(
